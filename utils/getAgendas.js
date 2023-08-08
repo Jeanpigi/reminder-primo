@@ -32,7 +32,11 @@ const getAgendas = () => {
     });
   };
 
-  cron.schedule("0 6 * * *", sendDateToday);
+  // Esto es para cada 3 minutos
+  // cron.schedule("*/3 * * * *", sendDateToday);
+
+  // este es para las 4 AM
+  cron.schedule("0 4 * * *", sendDateToday);
 
   // Devuelve las fechas y los números de celular al final
   return { fechas, celulares };

@@ -15,13 +15,13 @@ app.use(cors());
 
 app.use("/", index);
 
-const { fechas } = getAgendas();
-
-const celular = "3185274636";
+const { fechas, celulares } = getAgendas();
 
 const mensaje = "le recuerda que su cita quedo programada para la fecha";
 
-sendMessages(fechas, celular, mensaje);
+console.log(fechas);
+
+sendMessages(fechas, celulares, mensaje);
 
 app.listen(3001, () => {
   console.log("Server is running on port 3001");
