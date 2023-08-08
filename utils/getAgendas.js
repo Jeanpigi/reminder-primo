@@ -1,10 +1,11 @@
 const axios = require("axios");
 const cron = require("node-cron");
 
-// Esta funcion obtiene las fechas todos los días a las 6:00 AM
 const getAgendas = () => {
   const fechas = [];
+  const celulares = [];
   const url = "https://agenda.supermercadoselprimo.com/api/allAgendas";
+
   const sendDateToday = async () => {
     const currentDate = new Date();
     const data = await axios
@@ -26,11 +27,15 @@ const getAgendas = () => {
       ) {
         console.log("Fechaini es del día de hoy o posterior:", item.Fechaini);
         fechas.push(item.Fechaini);
+        celulares.push(item.Celular);
       }
     });
   };
 
   cron.schedule("0 6 * * *", sendDateToday);
+
+  // Devuelve las fechas y los números de celular al final
+  return { fechas, celulares };
 };
 
 module.exports = getAgendas;
