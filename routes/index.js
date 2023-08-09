@@ -4,7 +4,7 @@ const sendSMSHandler = require("../handlers/sendSMSHandler");
 const sendWhatsAppHandler = require("../handlers/sendWhatsAppHandler");
 
 router.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send("Reagendamiento el primo!");
 });
 
 router.get("/test", (req, res) => {

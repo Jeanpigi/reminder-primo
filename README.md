@@ -24,19 +24,19 @@ Para instalar este proyecto, corre los siguientes comandos en una terminal o con
   npm install
 ```
 
-## Uso del proyecto
-
-1. Correr el proyecto en desarrollo:
+5. Correr el proyecto en desarrollo:
 
 ```bash
   npm run dev
 ```
 
-2. Correr el proyecto en producción
+6. Correr el proyecto en producción
 
 ```bash
   npm run start
 ```
+
+7. Accede a la aplicación en tu navegador web en la siguiente URL: [http://localhost:3001](http://localhost:3001)
 
 ## Contribución
 
