@@ -31,20 +31,13 @@ const getAgendas = () => {
         console.log("Celulares para enviar:", item.Celular);
         fechas.push(item.Fechaini);
         celulares.push(item.Celular);
-        sendMessage(item.Fechaini, "3185274636", mensaje);
+        sendMessage(item.Fechaini, item.Celular, mensaje);
       }
     });
   };
 
   // este es para las 4 AM
-  // cron.schedule("0 4 * * *", sendDateToday);
-
-  cron.schedule("*/2 * * * *", () => {
-    sendDateToday();
-  });
-
-  // Devuelve las fechas y los números de celular al final
-  // return { fechas, celulares };
+  cron.schedule("0 4 * * *", sendDateToday);
 };
 
 module.exports = getAgendas;
