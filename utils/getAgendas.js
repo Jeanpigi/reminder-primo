@@ -3,8 +3,6 @@ const cron = require("node-cron");
 const sendMessage = require("./sendMessage");
 
 const getAgendas = () => {
-  const fechas = [];
-  const celulares = [];
   const url = "https://agenda.supermercadoselprimo.com/api/allAgendas";
   const mensaje = "le recuerda que su cita quedo programada para la fecha";
 
@@ -29,9 +27,7 @@ const getAgendas = () => {
       ) {
         console.log("Fechaini es del día de hoy o posterior:", item.Fechaini);
         console.log("Celulares para enviar:", item.Celular);
-        fechas.push(item.Fechaini);
-        celulares.push(item.Celular);
-        sendMessage(item.Fechaini, item.Celular, mensaje);
+        sendMessage(item.Fechaini, "3185274636", mensaje);
       }
     });
   };

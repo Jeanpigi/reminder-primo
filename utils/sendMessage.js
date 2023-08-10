@@ -6,11 +6,11 @@ const sendMessage = (fecha, celular, mensaje) => {
   const urlSendSMS = "http://localhost:3001/api/sendSMS";
 
   const fechaInicio = new Date(fecha);
-  const twoMinutesBefore = new Date(fechaInicio.getTime() - 2 * 60 * 1000);
+  const twoHoursBefore = new Date(fechaInicio.getTime() - 2 * 60 * 60 * 1000);
 
-  schedule.scheduleJob(twoMinutesBefore, () => {
-    axios.post(urlWhatsApp, { fecha, celular, mensaje });
-    axios.post(urlSendSMS, { fecha, celular, mensaje });
+  schedule.scheduleJob(twoHoursBefore, () => {
+    axios.post(urlWhatsApp, { fechaInicio, celular, mensaje });
+    axios.post(urlSendSMS, { fechaInicio, celular, mensaje });
   });
 };
 

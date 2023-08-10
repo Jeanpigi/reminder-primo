@@ -6,6 +6,8 @@ const sendWhatsApphandler = async (req, res) => {
     try {
       const { fechaInicio, celular, mensaje } = req.body;
 
+      console.log(fechaInicio, celular, mensaje);
+
       const dateObject = new Date(fechaInicio);
 
       const year = dateObject.getFullYear();
