@@ -27,7 +27,7 @@ const getAgendas = () => {
       ) {
         console.log("Fechaini es del día de hoy o posterior:", item.Fechaini);
         console.log("Celulares para enviar:", item.Celular);
-        sendMessage(item.Fechaini, "3185274636", mensaje);
+        sendMessage(item.Fechaini, item.Celular, mensaje);
       }
     });
   };
