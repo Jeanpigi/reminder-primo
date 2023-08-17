@@ -54,4 +54,4 @@ Si deseas contribuir a este proyecto y ayudarlo a crecer, sigue estos pasos:
 
 ## Licencia
 
-Esta aplicación está bajo la Licencia [Creative Commons No Derivatives (CC ND)](https://creativecommons.org/licenses/by-nd/4.0/).
+Esta aplicación está bajo la Licencia [Creative Commons Atribución-NoComercial (CC BY-NC)](https://creativecommons.org/licenses/by-nc/4.0/).
