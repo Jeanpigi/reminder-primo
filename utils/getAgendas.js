@@ -1,9 +1,10 @@
 const axios = require("axios");
 const cron = require("node-cron");
 const sendMessage = require("./sendMessage");
+require("dotenv").config();
 
 const getAgendas = () => {
-  const url = "https://agenda.supermercadoselprimo.com/api/allAgendas";
+  const url = process.env.URL;
   const mensaje = "le recuerda que su cita quedo programada para la fecha";
 
   const sendDateToday = async () => {
