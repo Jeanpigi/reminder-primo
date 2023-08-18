@@ -6,7 +6,13 @@ const sendWhatsApphandler = async (req, res) => {
     try {
       const { fechaInicio, celular, mensaje } = req.body;
 
-      console.log(fechaInicio, celular, mensaje);
+      const currentDay = new Date();
+
+      console.log("------------------------------------------");
+      console.log(`Mensaje enviado el dia: ${currentDay}`);
+      console.log(
+        `fecha y hora del mensaje ${fechaInicio}, celular a enviar ${celular} el mensaje ${mensaje}`
+      );
 
       const dateObject = new Date(fechaInicio);
 

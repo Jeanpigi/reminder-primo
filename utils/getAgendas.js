@@ -8,6 +8,8 @@ const getAgendas = () => {
 
   const sendDateToday = async () => {
     const currentDate = new Date();
+    console.log("--------------------------------------");
+    console.log(`Fecha actual: ${currentDate}`);
     const data = await axios
       .get(url)
       .then((response) => {
@@ -25,8 +27,15 @@ const getAgendas = () => {
         fechainiDate.getMonth() === currentDate.getMonth() &&
         fechainiDate.getFullYear() === currentDate.getFullYear()
       ) {
-        console.log("Fechaini es del día de hoy o posterior:", item.Fechaini);
-        console.log("Celulares para enviar:", item.Celular);
+        console.log(
+          "------------------------------------------------------------"
+        );
+        console.log(
+          `Fecha a enviar: ${item.Fechaini} y celular: ${item.Celular}`
+        );
+        console.log(
+          "-------------------------------------------------------------"
+        );
         sendMessage(item.Fechaini, item.Celular, mensaje);
       }
     });
