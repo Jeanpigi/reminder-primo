@@ -3,6 +3,8 @@ const app = express();
 const morgan = require("morgan");
 const cors = require("cors");
 
+const port = process.env.PORT || 3000;
+
 const getAgendas = require("./utils/getAgendas");
 
 // Rutas
@@ -16,6 +18,6 @@ app.use("/", index);
 
 getAgendas();
 
-app.listen(3001, () => {
-  console.log("Server is running on port 3001");
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
