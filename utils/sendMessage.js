@@ -3,10 +3,10 @@ const schedule = require("node-schedule");
 
 const sendMessage = (fecha, celular, mensaje) => {
   const urlWhatsApp =
-    "http://localhost:3001/api/sendWhatsApp" ||
+    "http://localhost:41030/api/sendWhatsApp" ||
     "https://reminder-primo-b01b21f4b5c9.herokuapp.com/api/sendWhatsApp";
   const urlSendSMS =
-    "http://localhost:3001/api/sendSMS" ||
+    "http://localhost:41030/api/sendSMS" ||
     "https://reminder-primo-b01b21f4b5c9.herokuapp.com/api/sendSMS";
 
   const fechaInicio = new Date(fecha);
