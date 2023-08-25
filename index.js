@@ -3,7 +3,7 @@ const app = express();
 const morgan = require("morgan");
 const cors = require("cors");
 
-const port = process.env.PORT || 41030;
+const port = process.env.PORT || 3001;
 
 const getAgendas = require("./utils/getAgendas");
 

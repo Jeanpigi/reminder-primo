@@ -1,1 +1,1 @@
-web: node index.js -p 41030
+web: node index.js

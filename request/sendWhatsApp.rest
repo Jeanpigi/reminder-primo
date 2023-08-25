@@ -1,4 +1,4 @@
-POST http://localhost:3001/api/sendWhatsApp HTTP/1.1
+POST https://reminder-primo-b01b21f4b5c9.herokuapp.com/api/sendWhatsApp HTTP/1.1
 content-type: application/json
 
 {
