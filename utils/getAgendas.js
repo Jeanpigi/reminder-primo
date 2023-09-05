@@ -1,33 +1,21 @@
-const axios = require("axios");
 const cron = require("node-cron");
 const sendMessage = require("./sendMessage");
+const { getAgendasForToday } = require("../database/db");
 require("dotenv").config();
 
 const getAgendas = () => {
-  const url = process.env.URL;
   const mensaje = "le recuerda que su cita quedo programada para la fecha";
 
   const sendDateToday = async () => {
     const currentDate = new Date();
     console.log("--------------------------------------");
     console.log(`Fecha actual: ${currentDate}`);
-    const data = await axios
-      .get(url)
-      .then((response) => {
-        return response.data;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
 
-    data.forEach((item) => {
-      const fechainiDate = new Date(item.Fechaini);
+    try {
+      // Utiliza la función getAgendasForToday para obtener las agendas para el día actual
+      const todayAgendas = await getAgendasForToday();
 
-      if (
-        fechainiDate.getDate() === currentDate.getDate() &&
-        fechainiDate.getMonth() === currentDate.getMonth() &&
-        fechainiDate.getFullYear() === currentDate.getFullYear()
-      ) {
+      todayAgendas.forEach((item) => {
         console.log(
           "------------------------------------------------------------"
         );
@@ -38,11 +26,12 @@ const getAgendas = () => {
           "-------------------------------------------------------------"
         );
         sendMessage(item.Fechaini, item.Celular, mensaje);
-      }
-    });
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  // este es para las 4 AM
   cron.schedule("0 4 * * *", sendDateToday);
 };
 

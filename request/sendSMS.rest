@@ -1,8 +1,8 @@
-POST https://reminder-primo-b01b21f4b5c9.herokuapp.com/api/sendSMS HTTP/1.1
+POST http://localhost:3001/api/sendSMS HTTP/1.1
 content-type: application/json
 
 {
-    "fechaInicio": "2023-08-08 08:50:00",
+    "fechaInicio": "2023-09-05 11:25:00",
     "celular": "573185274636",
     "mensaje": "Probando a ver si envia mensajes"
 }

@@ -8,10 +8,12 @@ const sendMessage = (fecha, celular, mensaje) => {
   const fechaInicio = new Date(fecha);
   const twoHoursBefore = new Date(fechaInicio.getTime() - 2 * 60 * 60 * 1000);
 
-  schedule.scheduleJob(twoHoursBefore, () => {
-    axios.post(urlWhatsApp, { fechaInicio, celular, mensaje });
-    axios.post(urlSendSMS, { fechaInicio, celular, mensaje });
-  });
+  const sendMessages = async () => {
+    await axios.post(urlWhatsApp, { fechaInicio, celular, mensaje });
+    await axios.post(urlSendSMS, { fechaInicio, celular, mensaje });
+  };
+
+  schedule.scheduleJob(twoHoursBefore, sendMessages);
 };
 
 module.exports = sendMessage;
