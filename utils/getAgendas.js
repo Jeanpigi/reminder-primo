@@ -1,6 +1,7 @@
 const cron = require("node-cron");
 const sendMessage = require("./sendMessage");
-const { getAgendasForToday } = require("../database/db");
+const getAgendasForToday = require("../database/db"); // Importa la función como un módulo
+
 require("dotenv").config();
 
 const getAgendas = () => {
@@ -14,6 +15,11 @@ const getAgendas = () => {
     try {
       // Utiliza la función getAgendasForToday para obtener las agendas para el día actual
       const todayAgendas = await getAgendasForToday();
+
+      if (todayAgendas.length === 0) {
+        console.log("No hay agendas para hoy.");
+        return; // No hace nada si no hay agendas
+      }
 
       todayAgendas.forEach((item) => {
         console.log(
