@@ -31,7 +31,7 @@ const getAgendas = () => {
         console.log(
           "-------------------------------------------------------------"
         );
-        sendMessage(item.Fechaini, item.Celular, mensaje);
+        sendMessage(item.Fechaini, item.Fechafin, item.Celular, mensaje);
       });
     } catch (error) {
       console.error(error);

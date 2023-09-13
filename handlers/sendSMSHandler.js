@@ -1,32 +1,37 @@
 require("dotenv").config();
 
-const formatTime = (date) => {
-  const horas = date.getHours();
-  const minutos = date.getMinutes();
+const formatTime = (fecha) => {
+  const horas = fecha.getHours();
+  const minutos = fecha.getMinutes();
   const amOrPmInicio = horas >= 12 ? "PM" : "AM";
   return `${(horas % 12 || 12).toString().padStart(2, "0")}:${minutos
     .toString()
     .padStart(2, "0")} ${amOrPmInicio}`;
 };
 
-const buildMessage = (fechaInicio, mensaje) => {
-  const dateObject = new Date(fechaInicio);
+const buildMessage = (fecha) => {
+  const dateObject = new Date(fecha);
   const year = dateObject.getFullYear();
   const month = dateObject.getMonth() + 1;
   const day = dateObject.getDate();
   const horaFormateada = formatTime(dateObject);
-  return `${mensaje} ${day}/${month}/${year} a la hora: ${horaFormateada}`;
+  return `${day}/${month}/${year} a la hora: ${horaFormateada}`;
 };
 
 const sendSMSHandler = async (req, res) => {
   try {
-    const { fechaInicio, celular, mensaje } = req.body;
+    const { fechaInicio, fechaFin, celular, mensaje } = req.body;
 
-    if (!fechaInicio || !celular || !mensaje) {
+    if (!fechaInicio || !fechaFin || !celular || !mensaje) {
       throw new Error("Los datos de entrada son inválidos.");
     }
 
-    const message = buildMessage(fechaInicio, mensaje);
+    const fechaFormateada = buildMessage(fechaInicio);
+    const dateObjectFin = new Date(fechaFin);
+    const horaFormateadaFin = formatTime(dateObjectFin);
+
+    // Crear el mensaje completo
+    const message = `${mensaje} ${fechaFormateada} - ${horaFormateadaFin}`;
 
     const options = {
       method: "POST",
