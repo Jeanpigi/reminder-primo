@@ -2,8 +2,8 @@ POST http://localhost:3001/api/sendSMS HTTP/1.1
 content-type: application/json
 
 {
-    "fechaInicio": "2023-09-13 16:35:00",
-    "fechaFin": "2023-09-13 17:35:00",
-    "celular": "573185274636",
+    "fechaInicio": "2029-09-13 16:35:00",
+    "fechaFin": "2029-09-13 17:35:00",
+    "celular": "573054368141",
     "mensaje": "Probando a ver si envia mensajes"
 }
