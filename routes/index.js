@@ -5,7 +5,7 @@ const sendWhatsAppHandler = require("../handlers/sendWhatsAppHandler");
 const testHandler = require("../handlers/testHandler");
 
 router.get("/", (req, res) => {
-  res.send("Reagendamiento el primo!");
+  res.send("Reagendamiento el primo desde vercel!");
 });
 
 router.get("/test", testHandler);
