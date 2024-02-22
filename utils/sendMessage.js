@@ -3,7 +3,7 @@ const schedule = require("node-schedule");
 
 const sendMessage = (fechaStart, fechaEnd, celular, mensaje) => {
   const urlWhatsApp = "http://localhost:3001/api/sendWhatsApp";
-  const urlSendSMS = "http://localhost:3001/api/sendSMS";
+  // const urlSendSMS = "http://localhost:3001/api/sendSMS";
 
   const fechaInicio = new Date(fechaStart);
   const fechaFin = new Date(fechaEnd);
@@ -11,7 +11,7 @@ const sendMessage = (fechaStart, fechaEnd, celular, mensaje) => {
 
   const sendMessages = async () => {
     await axios.post(urlWhatsApp, { fechaInicio, fechaFin, celular, mensaje });
-    await axios.post(urlSendSMS, { fechaInicio, fechaFin, celular, mensaje });
+    // await axios.post(urlSendSMS, { fechaInicio, fechaFin, celular, mensaje });
   };
 
   schedule.scheduleJob(twoHoursBefore, sendMessages);

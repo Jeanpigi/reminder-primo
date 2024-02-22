@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const sendSMSHandler = require("../handlers/sendSMSHandler");
+// const sendSMSHandler = require("../handlers/sendSMSHandler");
 const sendWhatsAppHandler = require("../handlers/sendWhatsAppHandler");
 const agendasHandler = require("../handlers/agendasHandler");
 
@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 });
 router.get("/agendas", agendasHandler);
 // Rutas para enviar SMS y WhatsApp
-router.post("/api/sendSMS", sendSMSHandler);
+// router.post("/api/sendSMS", sendSMSHandler);
 router.post("/api/sendWhatsApp", sendWhatsAppHandler);
 // Middleware para manejar rutas no encontradas (404)
 router.use((req, res) => {
